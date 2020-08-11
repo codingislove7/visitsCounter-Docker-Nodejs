@@ -1,0 +1,18 @@
+# version of docker compose
+version: "3"
+# services that we want to docker compose use to create this container
+services: 
+    #service that we want to use in this container
+    redis-server:
+        # image that we want to build above service
+        image: "redis"
+    #service that we want to use in this container
+    node-app:
+        #restart container always after stop
+        restart: always
+        # lock in current directory and build the dockerfile 
+        build: .
+        #specify ports 
+        ports:  
+        # - in yml files specify an array to map
+           - "4001:8081"
